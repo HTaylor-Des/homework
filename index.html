@@ -32,10 +32,11 @@
 				if(data[i].major == "CIT")
 					{
                      			CITcontents += "<tr><td>" + data[i].name + "</td><td>" + data[i].major + "</td><td>" + data[i].midterm + "</td><td>" + data[i].final + "</td></tr>";
-					citStudent.push(CITcontents);
+					
                 		}
 			}		
                 	CITcontents += "</table>";
+			citStudent.push(CITcontents);
                 	document.querySelector('#result').innerHTML = citStudent[];
             	}
             	else {
