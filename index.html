@@ -26,8 +26,8 @@
             	var data = JSON.parse(request.responseText);
 			
             	if (request.status == 200) {
-            		var CITcontents = "<table cellspacing='5'><tr><td>Name</td><td>Major</td><td>Midterm</td><td>Final</td></tr>"
-			citStudent = []
+            		var CITcontents = "<table cellspacing='5'><tr><td>Name</td><td>Major</td><td>Midterm</td><td>Final</td></tr>";
+			citStudent = [];
             		for(i = 0; i < data.length; i++) 
 				{
 				if(data[i].major == "CIT")
@@ -50,8 +50,8 @@
          		var data = JSON.parse(request.responseText);
 			
             		if (request.status == 200) {
-				var BUScontents = "<table cellspacing='5'><tr><td>Name</td><td>Major</td><td>Midterm</td><td>Final</td></tr>"
-				busStudent = []
+				var BUScontents = "<table cellspacing='5'><tr><td>Name</td><td>Major</td><td>Midterm</td><td>Final</td></tr>";
+				busStudent = [];
           			for(i = 0; i < data.length; i++) 
 						{
 				if(data[i].major == "BUS")
