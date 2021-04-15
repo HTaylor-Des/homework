@@ -24,11 +24,11 @@
 
             	var data = JSON.parse(request.responseText);
 			
-            	if (request.status == 200) {
+            	if (request.status == 200 && data[i].major == "CIT") {
             		var CITcontents = "<table cellspacing='5'><tr><td>Name</td><td>Major</td><td>Midterm</td><td>Final</td></tr>"
 					
             		for(i = 0; i < data.length; i++) {
-                     	CITcontents += "<tr><td>" + data[i].name + "</td><td>" + data[i].major == "CIT" + "</td><td>" + data[i].midterm + "</td><td>" + data[i].final + "</td></tr>";
+                     	CITcontents += "<tr><td>" + data[i].name + "</td><td>" + data[i].major + "</td><td>" + data[i].midterm + "</td><td>" + data[i].final + "</td></tr>";
                 	}
 					
                 	CITcontents += "</table>";
