@@ -28,7 +28,6 @@
             		var CITcontents = "<table cellspacing='5'><tr><td>Name</td><td>Major</td><td>Midterm</td><td>Final</td></tr>"
 			var BUScontents = "<table cellspacing='5'><tr><td>Name</td><td>Major</td><td>Midterm</td><td>Final</td></tr>"
 			citStudent = []
-			busStudent = []
             		for(i = 0; i < data.length; i++) 
 				{
 				if(data[i].major == "CIT")
@@ -37,9 +36,7 @@
 				}
 			}		
                 	CITcontents += "</table>";
-			BUScontents += "</table>";
 			citStudent.push(CITcontents);
-			busStudent.push(CITcontents);
                 	document.querySelector('#result').innerHTML = citStudent;
             	}
             	else {
