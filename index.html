@@ -42,13 +42,12 @@
                 	document.querySelector('#result').innerHTML = "There was an error.";
             	}
 	}	
-		document.querySelector('#btn2').onclick = function(){   
-        	var request = new XMLHttpRequest();
-        	request.open('GET', 'studentlist.json');
+	document.querySelector('#btn2').onclick = function(){   
+        var request = new XMLHttpRequest();
+        request.open('GET', 'studentlist.json');
 
-        	request.onload = function(){
-
-            	var data = JSON.parse(request.responseText);
+        request.onload = function(){
+		var data = JSON.parse(request.responseText);
 			
             	if (request.status == 200) {
 			var BUScontents = "<table cellspacing='5'><tr><td>Name</td><td>Major</td><td>Midterm</td><td>Final</td></tr>"
