@@ -53,7 +53,7 @@
 		if (request.status == 200) {   
 		    var templateText = document.getElementById('tableTemplate').innerHTML;
 		    var compiledTemplateText = Handlebars.compile(templateText);       
-		    compiledHtml = compiledTemplateText({ rows: major_items })          
+		    compiledHtml = compiledTemplateText({ rows: major_items });          
 		    document.getElementById('majorTable').innerHTML = compiledHtml; 
 		}
 		else {
