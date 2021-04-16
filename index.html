@@ -41,7 +41,7 @@
 
 	      request.onload = function() {                     
 		 var data = JSON.parse(request.responseText);
-		 console.log(data);
+		 
 
 		 major_items = []    // new array to hold filtered data
 
@@ -50,6 +50,7 @@
 			major_items.push(data);
 			}
 		} 
+		      console.log(major_items);
 
 		if (request.status == 200) {   
 		    var templateText = document.getElementById('tableTemplate').innerHTML;
