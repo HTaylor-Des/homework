@@ -40,7 +40,8 @@
 	      request.open('GET', 'studentlist.json');     
 
 	      request.onload = function() {                     
-		 var data = JSON.parse(request.responseText);    
+		 var data = JSON.parse(request.responseText);
+		 console.log(data);
 
 		 major_items = []    // new array to hold filtered data
 
