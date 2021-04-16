@@ -16,8 +16,8 @@
 <div class="container">
       <h2>Select a Major</h2>
       <div style='padding: 5px;'> 
-         <button type='button' class="btn btn-primary" onClick="getData('major'=='CIT')">CIT</button> 
-         <button type='button' class="btn btn-primary" onClick="getData('major'=='BUS')">BUS</button> 
+         <button type='button' class="btn btn-primary" onClick="getData('CIT')">CIT</button> 
+         <button type='button' class="btn btn-primary" onClick="getData('BUS')">BUS</button> 
       </div> 
 	<div id="majorTable"></div>
 
@@ -35,28 +35,31 @@
 
 
     <script>
-        function getData(selected_major) {      // called when a button is clicked. paramter selected_meal = breakfast, lunch, or dinner
-      var request = new XMLHttpRequest();
-      request.open('GET', 'studentlist.json');      // open Ajax request for data file menu_items.json
- 
-      request.onload = function() {                     // when the data comes back, browser calls this function
-         var data = JSON.parse(request.responseText);    // convert json to javascript array of objects
+      function getData(selected_major) {      // called when a button is clicked. paramter selected_meal = breakfast, lunch, or dinner
+	      var request = new XMLHttpRequest();
+	      request.open('GET', 'studentlist.json');      // open Ajax request for data file menu_items.json
 
-         student_major = data.filter(getMajor)       // meal_itmes array will contain the filtered data using the getMeal() function
-         function getMajor(item) {
-            return item.major == selected_major;  
-         }
-        
-        if (request.status == 200) {    // if all is well as data returns, then compile and populate the template
-            var templateText = document.getElementById('tableTemplate').innerHTML;
-            var compiledTemplateText = Handlebars.compile(templateText);       
-            compiledHtml = compiledTemplateText({ rows: student_major })          
-            document.getElementById('majorTable').innerHTML = compiledHtml; 
-        }
-        else {
-            document.querySelector('#majorTable').innerHTML = "There was an error, or menu items not found";
-        }
-     }
+	      request.onload = function() {                     // when the data comes back, browser calls this function
+		 var data = JSON.parse(request.responseText);    // convert json to javascript array of objects
+
+		 major_items = []    // new array to hold filtered data
+
+		for(i=0, i < data.length; i++) {
+			if(data[i].major == selected_major) {
+			major_items.push(data[i].major);
+			}
+		} 
+
+		if (request.status == 200) {    // if all is well as data returns, then compile and populate the template
+		    var templateText = document.getElementById('tableTemplate').innerHTML;
+		    var compiledTemplateText = Handlebars.compile(templateText);       
+		    compiledHtml = compiledTemplateText({ rows: major_items })          
+		    document.getElementById('majorTable').innerHTML = compiledHtml; 
+		}
+		else {
+		    document.querySelector('#majorTable').innerHTML = "There was an error, or menu items not found";
+		}
+	     }
      
      request.send(null);
   }
