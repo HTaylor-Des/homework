@@ -35,22 +35,22 @@
 
 
     <script>
-      function getData(selected_major) {      // called when a button is clicked. paramter selected_meal = breakfast, lunch, or dinner
+      function getData(selected_major) {      
 	      var request = new XMLHttpRequest();
-	      request.open('GET', 'studentlist.json');      // open Ajax request for data file menu_items.json
+	      request.open('GET', 'studentlist.json');     
 
-	      request.onload = function() {                     // when the data comes back, browser calls this function
-		 var data = JSON.parse(request.responseText);    // convert json to javascript array of objects
+	      request.onload = function() {                     
+		 var data = JSON.parse(request.responseText);    
 
 		 major_items = []    // new array to hold filtered data
 
 		for(i=0; i < data.length; i++) {
 			if(data[i].major == selected_major) {
-			major_items.push(data[i].major);
+			major_items.push(data);
 			}
 		} 
 
-		if (request.status == 200) {    // if all is well as data returns, then compile and populate the template
+		if (request.status == 200) {   
 		    var templateText = document.getElementById('tableTemplate').innerHTML;
 		    var compiledTemplateText = Handlebars.compile(templateText);       
 		    compiledHtml = compiledTemplateText({ rows: major_items })          
